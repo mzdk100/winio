@@ -66,6 +66,10 @@ impl TextBox {
 
     pub fn set_size(&self, v: Size);
 
+    pub fn min_size(&self) -> Size {
+        todo!()
+    }
+
     pub fn preferred_size(&self) -> Size;
 
     pub fn new<W>(parent: W) -> Self
