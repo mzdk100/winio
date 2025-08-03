@@ -11,7 +11,7 @@ pub(crate) fn main() {
 
 pub(crate) struct MainModel {
     window: Child<Window>,
-    ulabel: Child<Label>,
+    ulabel: Child<ToolTip<Label>>,
     plabel: Child<Label>,
     uentry: Child<Edit>,
     pentry: Child<Edit>,
@@ -57,8 +57,9 @@ impl Component for MainModel {
                 size: Size::new(800.0, 600.0),
             },
             canvas: Canvas = (&window),
-            ulabel: Label = (&window) => {
+            ulabel: ToolTip<Label> = (&window) => {
                 text: "Username:",
+                tooltip: "Your username",
                 halign: HAlign::Right,
             },
             plabel: Label = (&window) => {
@@ -105,7 +106,7 @@ impl Component for MainModel {
             },
             show_button: ToolTip<Button> = (&window) => {
                 text: "Show",
-                tooltip: "Show the current selection in the combo box."
+                tooltip: "Show the current selection in the combo box.\nIf no selection, show \"No selection.\"",
             },
             progress: Progress = (&window) => {
                 indeterminate: true,
